@@ -1,12 +1,12 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="flex justify-center">
       <div className="px-7 py-12  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <h2 className="logo text-center text-2xl lg:text-3xl">Studyo</h2>
-        <p className="text-xl text-center my-4">Sign in to your account</p>
+        <p className="text-xl text-center my-4">Register your account</p>
         <div>
           <button className="w-full flex btn text-lg font-normal">
             <FcGoogle className="text-2xl" />
@@ -15,6 +15,28 @@ const Login = () => {
         </div>
         <div className="divider">OR</div>
         <form>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Photo URL</span>
+            </label>
+            <input
+              type="url"
+              placeholder="photo url"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="name"
+              className="input input-bordered"
+              required
+            />
+          </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -36,20 +58,15 @@ const Login = () => {
               className="input input-bordered"
               required
             />
-            <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
-                Forgot password?
-              </a>
-            </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-primary">Register</button>
           </div>
         </form>
         <p className="text-center mt-4">
-          Don't have a account?{" "}
-          <Link className="underline" to="/register">
-            Register
+          Already have an account?{" "}
+          <Link className="underline" to="/login">
+            Login
           </Link>
         </p>
       </div>
@@ -57,4 +74,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

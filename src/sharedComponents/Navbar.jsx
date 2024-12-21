@@ -1,11 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
-        <a className="logo text-2xl lg:text-3xl">Studyo</a>
+        <a
+          onClick={() => {
+            navigate("/");
+          }}
+          className="logo text-2xl lg:text-3xl"
+        >
+          Studyo
+        </a>
       </div>
 
       <div className="navbar-end">
