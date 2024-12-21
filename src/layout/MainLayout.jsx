@@ -4,7 +4,7 @@ import Navbar from "../sharedComponents/Navbar";
 const MainLayout = () => {
   return (
     <div>
-      <nav className="max-w-7xl mx-auto">
+      <nav className="w-11/12 mx-auto">
         <Navbar></Navbar>
       </nav>
       <main className="max-w-7xl mx-auto">
