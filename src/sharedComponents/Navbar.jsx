@@ -6,13 +6,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar text-primary">
       <div className="navbar-start">
         <a
           onClick={() => {
             navigate("/");
           }}
-          className="logo text-2xl lg:text-3xl"
+          className="logo text-primary font-semibold text-2xl lg:text-3xl"
         >
           Studyo
         </a>
@@ -64,7 +64,7 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-60 p-2 shadow"
               >
                 <li>
-                  <a>Create Assignments</a>
+                  <NavLink to="/create-assignment">Create Assignments</NavLink>
                 </li>
                 <li>
                   <a>My Attempted Assignments</a>
