@@ -2,8 +2,10 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import useAuth from "../../hooks/useAuth";
 
 const CreateAssignment = () => {
+  const { user } = useAuth();
   const [startDate, setStartDate] = useState(new Date());
   const handleAddAssignment = (e) => {
     e.preventDefault();
@@ -13,8 +15,17 @@ const CreateAssignment = () => {
     const marks = form.marks.value;
     const level = form.level.value;
     const dueDate = startDate;
+    const creator_email = user.email;
     const description = form.description.value;
-    const newAssignment = { photo, title, marks, level, dueDate, description };
+    const newAssignment = {
+      photo,
+      title,
+      marks,
+      level,
+      dueDate,
+      description,
+      creator_email,
+    };
     console.log(newAssignment);
     axios
       .post("http://localhost:5000/assignments", newAssignment)
@@ -99,12 +110,12 @@ const CreateAssignment = () => {
           <div className="md:flex gap-4">
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text">Title</span>
+                <span className="label-text">Description</span>
               </label>
               <textarea
                 name="description"
                 className="textarea textarea-bordered"
-                placeholder="Bio"
+                placeholder="description"
               ></textarea>
             </div>
           </div>

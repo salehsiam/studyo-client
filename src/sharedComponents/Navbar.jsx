@@ -22,11 +22,38 @@ const Navbar = () => {
         <div className=" hidden lg:flex">
           <ul className="gap-5 items-center menu-horizontal px-1">
             <li>
-              <NavLink to="/assignments">Assignments</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "underline text-secondary font-semibold" : ""}`
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "underline text-secondary font-semibold" : ""}`
+                }
+                to="/assignments"
+              >
+                Assignments
+              </NavLink>
             </li>
             <li>
               {user && (
-                <NavLink to="/pending-assignments">Pending Assignments</NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    `${
+                      isActive ? "underline text-secondary font-semibold" : ""
+                    }`
+                  }
+                  to="/pending-assignments"
+                >
+                  Pending Assignments
+                </NavLink>
               )}
             </li>
             <li>
