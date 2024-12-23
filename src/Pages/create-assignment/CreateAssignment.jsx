@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 const CreateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -15,6 +16,11 @@ const CreateAssignment = () => {
     const description = form.description.value;
     const newAssignment = { photo, title, marks, level, dueDate, description };
     console.log(newAssignment);
+    axios
+      .post("http://localhost:5000/assignments", newAssignment)
+      .then((data) => {
+        console.log(data.data);
+      });
   };
   return (
     <div>
