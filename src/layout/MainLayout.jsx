@@ -3,7 +3,7 @@ import Navbar from "../sharedComponents/Navbar";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="bg-[#FFFDE7]">
       <nav className="w-11/12 mx-auto">
         <Navbar></Navbar>
       </nav>

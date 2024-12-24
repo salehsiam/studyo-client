@@ -1,14 +1,18 @@
 import { useLoaderData } from "react-router-dom";
 import SingleAssignment from "./SingleAssignment";
+import { useState } from "react";
 
 const Assignments = () => {
-  const assignments = useLoaderData();
+  const data = useLoaderData();
+  const [assignments, setAssignments] = useState(data);
   return (
     <div className="px-6">
       <h2 className="text-4xl font-semibold mb-4">All Assignments</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10">
         {assignments.map((assignment) => (
           <SingleAssignment
+            setAssignments={setAssignments}
+            assignments={assignments}
             assignment={assignment}
             key={assignment._id}
           ></SingleAssignment>

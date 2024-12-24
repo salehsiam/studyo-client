@@ -1,13 +1,62 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import axios from "axios";
 
-const SingleAssignment = ({ assignment }) => {
-  const { _id, photo, title, marks, level, dueDate, description } = assignment;
+const SingleAssignment = ({ assignment, assignments, setAssignments }) => {
+  const {
+    _id,
+    photo,
+    title,
+    marks,
+    level,
+    dueDate,
+    description,
+    examine_email,
+  } = assignment;
+  const { user } = useAuth();
+
+  const handleDelete = (id) => {
+    if (user.email !== examine_email) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You can't delete this assignment!",
+      });
+      return;
+    } else {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+          axios
+            .delete(`http://localhost:5000/assignment/${_id}`)
+            .then((data) => {
+              console.log(data.data);
+              const remaining = assignments.filter((ass) => ass._id != id);
+              setAssignments(remaining);
+            });
+        }
+      });
+    }
+  };
 
   return (
-    <div className="flex rounded-xl flex-col bg-base-100 shadow-xl">
-      <div className=" h-52 ">
+    <div className="flex flex-col rounded-md bg-orange-100 shadow-xl">
+      <div className=" h-64  ">
         <img
-          className="h-full w-full rounded-t-xl object-cover"
+          className="h-full w-full rounded-md object-cover"
           src={photo}
           alt={title}
         />
@@ -29,7 +78,12 @@ const SingleAssignment = ({ assignment }) => {
           >
             View
           </Link>
-          <button className="badge badge-outline px-5 py-3">Delete</button>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="badge badge-outline px-5 py-3"
+          >
+            Delete
+          </button>
           <Link to={`/assignment/updated/${_id}`}>
             <button className="badge badge-outline px-5 py-3">Update</button>
           </Link>

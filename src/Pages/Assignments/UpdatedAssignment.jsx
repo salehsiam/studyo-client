@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdatedAssignment = () => {
   const data = useLoaderData();
@@ -36,6 +37,7 @@ const UpdatedAssignment = () => {
       .patch(`http://localhost:5000/assignment/${_id}`, updatedAssignment)
       .then((data) => {
         console.log(data.data);
+        Swal.fire("Successfully updated");
       });
   };
   return (

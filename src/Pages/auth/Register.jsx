@@ -34,13 +34,13 @@ const Register = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="px-7 py-12  bg-base-100 w-full max-w-lg shrink-0 shadow-2xl">
+      <div className="px-7 py-12  bg-orange-100 w-full max-w-lg shrink-0 shadow-2xl">
         <h2 className="logo text-center text-2xl lg:text-3xl">Studyo</h2>
         <p className="text-xl text-center my-5">Register your account</p>
         <div>
           <button
             onClick={handleGoogleLogin}
-            className="w-full flex btn text-lg font-normal"
+            className="w-full flex btn bg-transparent hover:text-white border border-green-900 hover:bg-green-900 text-lg font-normal"
           >
             <FcGoogle className="text-2xl" />
             Continue with Google
@@ -97,7 +97,9 @@ const Register = () => {
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Register</button>
+            <button className="btn bg-green-900 hover:bg-orange-600  text-white">
+              Register
+            </button>
           </div>
         </form>
         <p className="text-center mt-4">

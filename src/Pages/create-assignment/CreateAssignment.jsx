@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const CreateAssignment = () => {
   const { user } = useAuth();
@@ -15,7 +16,8 @@ const CreateAssignment = () => {
     const marks = form.marks.value;
     const level = form.level.value;
     const dueDate = startDate;
-    const creator_email = user.email;
+    const examine_email = user.email;
+    const examine_name = user.displayName;
     const description = form.description.value;
     const newAssignment = {
       photo,
@@ -24,18 +26,21 @@ const CreateAssignment = () => {
       level,
       dueDate,
       description,
-      creator_email,
+      examine_email,
+      examine_name,
     };
     console.log(newAssignment);
     axios
       .post("http://localhost:5000/assignments", newAssignment)
       .then((data) => {
         console.log(data.data);
+        Swal.fire("SweetAlert2 is working!");
+        form.reset();
       });
   };
   return (
     <div>
-      <div className="w-2/3 mx-auto bg-primary p-10">
+      <div className="mx-10 py-16 bg-primary p-10">
         <h2 className="text-4xl text-secondary font-semibold">
           Create Assignment
         </h2>
