@@ -16,8 +16,7 @@ const CreateAssignment = () => {
     const marks = form.marks.value;
     const level = form.level.value;
     const dueDate = startDate;
-    const examine_email = user.email;
-    const examine_name = user.displayName;
+    const creator_email = user.email;
     const description = form.description.value;
     const newAssignment = {
       photo,
@@ -26,8 +25,7 @@ const CreateAssignment = () => {
       level,
       dueDate,
       description,
-      examine_email,
-      examine_name,
+      creator_email,
     };
     console.log(newAssignment);
     axios

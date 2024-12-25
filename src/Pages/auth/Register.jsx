@@ -19,7 +19,7 @@ const Register = () => {
         const user = result.user;
         setUser(user);
         updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
-          navigate("/");
+          navigate(location?.state ? location.state : "/");
         });
       })
       .catch((error) => {
@@ -29,7 +29,7 @@ const Register = () => {
 
   const handleGoogleLogin = () => {
     googleLogin();
-    navigate("/");
+    navigate(location?.state ? location.state : "/");
   };
 
   return (

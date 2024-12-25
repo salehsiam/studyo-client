@@ -6,7 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   return (
-    <div className="navbar text-primary">
+    <div className="navbar w-11/12 mx-auto text-primary">
       <div className="navbar-start">
         <a
           onClick={() => {
@@ -121,10 +121,28 @@ const Navbar = () => {
               className="menu right-0 menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Assignments</a>
+                <NavLink
+                  className={({ isActive }) =>
+                    `${
+                      isActive ? "underline text-secondary font-semibold" : ""
+                    }`
+                  }
+                  to="/assignments"
+                >
+                  Assignments
+                </NavLink>
               </li>
               <li>
-                <a>Pending Assignments</a>
+                <NavLink
+                  className={({ isActive }) =>
+                    `${
+                      isActive ? "underline text-secondary font-semibold" : ""
+                    }`
+                  }
+                  to="/pending-assignments"
+                >
+                  Pending Assignments
+                </NavLink>
               </li>
               <li>
                 {user ? (

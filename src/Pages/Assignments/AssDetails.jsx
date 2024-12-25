@@ -2,23 +2,18 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { format } from "date-fns";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 const AssDetails = () => {
   const data = useLoaderData();
   const { user } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [googleDocsLink, setGoogleDocsLink] = useState("");
   const [quickNote, setQuickNote] = useState("");
-  const {
-    photo,
-    title,
-    marks,
-    level,
-    dueDate,
-    description,
-    examine_email,
-    examine_name,
-  } = data;
+  const { photo, title, marks, level, dueDate, description, creator_email } =
+    data;
   const handleSubmit = () => {
+    const examinee_name = user.displayName;
+    const examinee_email = user.email;
     const status = "pending";
     if (!googleDocsLink) {
       alert("Google Docs Link is required!");
@@ -27,14 +22,19 @@ const AssDetails = () => {
     const submitAssignment = {
       title,
       assignments_marks: marks,
-      examine_name,
-      examine_email,
-      participator_email: user.email,
+      creator_email,
+      examinee_name,
+      examinee_email,
       status,
       googleDocsLink,
       quickNote,
     };
     console.log(submitAssignment);
+    axios
+      .post("http://localhost:5000/submittedAssignments", submitAssignment)
+      .then((data) => {
+        console.log(data.data);
+      });
   };
   return (
     <div className="w-2/3 mx-auto rounded-md space-y-6 border border-orange-200 p-5">

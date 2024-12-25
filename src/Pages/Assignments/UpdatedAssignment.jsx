@@ -28,11 +28,7 @@ const UpdatedAssignment = () => {
       dueDate,
       description,
     };
-    // axios
-    //   .post("http://localhost:5000/assignments", newAssignment)
-    //   .then((data) => {
-    //     console.log(data.data);
-    //   });
+
     axios
       .patch(`http://localhost:5000/assignment/${_id}`, updatedAssignment)
       .then((data) => {

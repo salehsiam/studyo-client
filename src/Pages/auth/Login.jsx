@@ -15,7 +15,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error.message);
@@ -24,7 +24,7 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     googleLogin();
-    navigate("/");
+    navigate(location?.state ? location.state : "/");
   };
   return (
     <div className="flex justify-center">

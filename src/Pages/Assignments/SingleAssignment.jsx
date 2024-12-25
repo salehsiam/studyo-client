@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -12,12 +12,12 @@ const SingleAssignment = ({ assignment, assignments, setAssignments }) => {
     level,
     dueDate,
     description,
-    examine_email,
+    creator_email,
   } = assignment;
   const { user } = useAuth();
 
   const handleDelete = (id) => {
-    if (user.email !== examine_email) {
+    if (user.email !== creator_email) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -35,17 +35,16 @@ const SingleAssignment = ({ assignment, assignments, setAssignments }) => {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success",
-          });
           axios
             .delete(`http://localhost:5000/assignment/${_id}`)
             .then((data) => {
-              console.log(data.data);
               const remaining = assignments.filter((ass) => ass._id != id);
               setAssignments(remaining);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
             });
         }
       });
