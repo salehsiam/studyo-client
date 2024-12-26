@@ -6,25 +6,25 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   return (
-    <div className="navbar w-11/12 mx-auto text-primary">
+    <div className="navbar w-11/12 mx-auto">
       <div className="navbar-start">
         <a
           onClick={() => {
             navigate("/");
           }}
-          className="logo text-primary font-semibold text-2xl lg:text-3xl"
+          className="logo text-yellow-300 font-semibold text-2xl lg:text-3xl"
         >
           Studyo
         </a>
       </div>
 
-      <div className="navbar-end">
-        <div className=" hidden lg:flex">
+      <div className="navbar-end items-center ">
+        <div className=" hidden text-white lg:flex">
           <ul className="gap-5 items-center menu-horizontal px-1">
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  `${isActive ? "underline text-secondary font-semibold" : ""}`
+                  `${isActive ? "underline text-yellow-500 font-semibold" : ""}`
                 }
                 to="/"
               >
@@ -35,7 +35,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  `${isActive ? "underline text-secondary font-semibold" : ""}`
+                  `${isActive ? "underline text-yellow-500 font-semibold" : ""}`
                 }
                 to="/assignments"
               >
@@ -47,7 +47,7 @@ const Navbar = () => {
                 <NavLink
                   className={({ isActive }) =>
                     `${
-                      isActive ? "underline text-secondary font-semibold" : ""
+                      isActive ? "underline text-yellow-500 font-semibold" : ""
                     }`
                   }
                   to="/pending-assignments"
@@ -58,7 +58,10 @@ const Navbar = () => {
             </li>
             <li>
               {user ? (
-                <button onClick={() => logout()} className="btn">
+                <button
+                  onClick={() => logout()}
+                  className="btn bg-yellow-400 px-6 rounded-2xl border-none"
+                >
                   Logout
                 </button>
               ) : (
@@ -99,8 +102,12 @@ const Navbar = () => {
               </ul>
             </div>
           )}
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div className="dropdown ">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn text-white btn-ghost lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"

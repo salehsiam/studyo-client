@@ -2,6 +2,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { userLogin, googleLogin, setUser } = useAuth();
@@ -15,22 +16,16 @@ const Login = () => {
     userLogin(email, password)
       .then((result) => {
         const user = { email: email };
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            console.log(res.data);
-          });
-
-        // navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
+        toast.success("successfully login");
       })
-      .catch((error) => {
-        console.log(error.message);
-      });
+      .catch((error) => {});
   };
 
   const handleGoogleLogin = () => {
     googleLogin();
     navigate(location?.state ? location.state : "/");
+    toast.success("successfully login");
   };
   return (
     <div className="flex justify-center">

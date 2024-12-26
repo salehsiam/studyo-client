@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const PendingAssignment = () => {
   const [submittedAssignments, setSubmittedAssignments] = useState([]);
@@ -11,9 +12,15 @@ const PendingAssignment = () => {
   const { user } = useAuth();
 
   // Fetch submitted assignments
+
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/submittedAssignments/${user.email}`)
+      .get(
+        `https://studyo-server.vercel.app/submittedAssignments/${user.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((data) => {
         setSubmittedAssignments(data.data);
       });
@@ -30,7 +37,7 @@ const PendingAssignment = () => {
   // Submit marks and feedback
   const handleSubmit = () => {
     if (!marks) {
-      alert("Please enter marks!");
+      toast("Please enter marks!");
       return;
     }
 
@@ -42,7 +49,7 @@ const PendingAssignment = () => {
 
     axios
       .put(
-        `http://localhost:5000/submittedAssignments/${selectedAssignment._id}`,
+        `https://studyo-server.vercel.app/submittedAssignments/${selectedAssignment._id}`,
         updatedData
       )
       .then((response) => {
@@ -51,11 +58,9 @@ const PendingAssignment = () => {
           prev.filter((assignment) => assignment._id !== selectedAssignment._id)
         );
         setIsModalOpen(false);
-        alert("Marks and feedback submitted successfully!");
+        toast.success("Marks and feedback submitted successfully!");
       })
-      .catch((error) => {
-        console.error("Error updating assignment:", error);
-      });
+      .catch((error) => {});
   };
 
   return (

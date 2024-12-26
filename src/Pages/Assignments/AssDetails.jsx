@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { format } from "date-fns";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import toast from "react-hot-toast";
 const AssDetails = () => {
   const data = useLoaderData();
   const { user } = useAuth();
@@ -29,13 +30,16 @@ const AssDetails = () => {
       googleDocsLink,
       quickNote,
     };
-    console.log(submitAssignment);
+
     axios
-      .post("http://localhost:5000/submittedAssignments", submitAssignment)
+      .post(
+        "https://studyo-server.vercel.app/submittedAssignments",
+        submitAssignment
+      )
       .then((data) => {
-        console.log(data.data);
         setGoogleDocsLink("");
         setQuickNote("");
+        toast.success("Assignments successfully submitted");
       });
   };
   return (

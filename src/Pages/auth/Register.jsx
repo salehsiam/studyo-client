@@ -1,6 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser, setUser, updateUserProfile, googleLogin } = useAuth();
@@ -20,11 +21,10 @@ const Register = () => {
         setUser(user);
         updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
           navigate(location?.state ? location.state : "/");
+          toast.success("successfully registered");
         });
       })
-      .catch((error) => {
-        console.log(error.message);
-      });
+      .catch((error) => {});
   };
 
   const handleGoogleLogin = () => {

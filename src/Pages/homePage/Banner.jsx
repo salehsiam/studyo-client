@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import image1 from "./../../assets/student-studying.jpg";
 import image4 from "./../../assets/studying-in-library.jpg";
 import { motion } from "motion/react";
 
 const Banner = () => {
+  const navigate = useNavigate();
   return (
     <div className="hero bg-green-900 min-h-screen overflow-x-hidden">
-      <div className="hero-content lg:px-20 md:px-10 flex-col-reverse lg:flex-row-reverse">
+      <div className="hero-content lg:px-20 px-10 flex-col-reverse lg:flex-row-reverse">
         <div className="lg:w-1/2">
           <motion.img
             animate={{ x: [50, 0, 50] }}
@@ -34,7 +36,14 @@ const Banner = () => {
             challenge your peers, and grow as a team. Make learning fun and
             rewarding!
           </p>
-          <button className="btn">Get Started</button>
+          <button
+            onClick={() => {
+              navigate("/assignments");
+            }}
+            className="btn bg-yellow-300 hover:bg-yellow-500 px-6"
+          >
+            Explore
+          </button>
         </div>
       </div>
     </div>

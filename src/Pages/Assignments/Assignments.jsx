@@ -6,42 +6,49 @@ import axios from "axios";
 const Assignments = () => {
   const [assignments, setAssignments] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/assignments").then((data) => {
+    axios.get("https://studyo-server.vercel.app/assignments").then((data) => {
       setAssignments(data.data);
     });
   }, []);
 
   const filterByEasy = () => {
-    axios.get("http://localhost:5000/assignments/easy").then((data) => {
-      console.log(data.data);
-      setAssignments(data.data);
-    });
+    axios
+      .get("https://studyo-server.vercel.app/assignments/easy")
+      .then((data) => {
+        setAssignments(data.data);
+      });
   };
 
   const filterByMedium = () => {
-    axios.get("http://localhost:5000/assignments/medium").then((data) => {
-      setAssignments(data.data);
-    });
+    axios
+      .get("https://studyo-server.vercel.app/assignments/medium")
+      .then((data) => {
+        setAssignments(data.data);
+      });
   };
   const filterByHard = () => {
-    axios.get("http://localhost:5000/assignments/hard").then((data) => {
-      setAssignments(data.data);
-    });
+    axios
+      .get("https://studyo-server.vercel.app/assignments/hard")
+      .then((data) => {
+        setAssignments(data.data);
+      });
   };
   const handleSearch = (e) => {
     const query = e.target.value;
     axios
-      .get(`http://localhost:5000/assignments/search?query=${query}`)
+      .get(`https://studyo-server.vercel.app/assignments/search?query=${query}`)
       .then((res) => {
         setAssignments(res.data);
       });
   };
 
   return (
-    <div className="px-6">
-      <div className="flex items-center justify-between my-6 ">
-        <h2 className="text-4xl w-1/3 font-semibold">All Assignments</h2>
-        <div className="flex items-center gap-4">
+    <div className="mt-10">
+      <div className="md:flex items-center px-6 justify-between  ">
+        <h2 className="md:text-4xl text-3xl mb-4 font-semibold">
+          All Assignments
+        </h2>
+        <div className="flex justify-between items-center gap-4">
           <label
             onChange={handleSearch}
             className="input input-bordered  flex items-center gap-2"
@@ -85,7 +92,7 @@ const Assignments = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 mt-4  gap-10">
         {assignments.map((assignment) => (
           <SingleAssignment
             setAssignments={setAssignments}

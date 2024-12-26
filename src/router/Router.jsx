@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <p>error</p>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -57,13 +57,13 @@ const router = createBrowserRouter([
         path: "assignment/details/:id",
         element: <AssDetails></AssDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/assignment/${params.id}`),
+          fetch(`https://studyo-server.vercel.app/assignment/${params.id}`),
       },
       {
         path: "assignment/updated/:id",
         element: <UpdatedAssignment></UpdatedAssignment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/assignment/${params.id}`),
+          fetch(`https://studyo-server.vercel.app/assignment/${params.id}`),
       },
     ],
   },

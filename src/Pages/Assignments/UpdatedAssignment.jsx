@@ -30,15 +30,17 @@ const UpdatedAssignment = () => {
     };
 
     axios
-      .patch(`http://localhost:5000/assignment/${_id}`, updatedAssignment)
+      .patch(
+        `https://studyo-server.vercel.app/assignment/${_id}`,
+        updatedAssignment
+      )
       .then((data) => {
-        console.log(data.data);
         Swal.fire("Successfully updated");
       });
   };
   return (
-    <div>
-      <div className=" mx-10 py-16 bg-primary p-10">
+    <div className="mt-16">
+      <div className=" mx-10 py-16 bg-orange-300 p-10">
         <h2 className="text-4xl mb-4 text-secondary font-semibold">
           Update Assignment
         </h2>
@@ -127,7 +129,7 @@ const UpdatedAssignment = () => {
               ></textarea>
             </div>
           </div>
-          <button className="btn w-full bg-[#8da6d4] text-white">
+          <button className="btn w-full bg-green-800 text-white">
             Update Assignment
           </button>
         </form>

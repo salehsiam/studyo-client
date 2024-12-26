@@ -37,7 +37,7 @@ const SingleAssignment = ({ assignment, assignments, setAssignments }) => {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .delete(`http://localhost:5000/assignment/${_id}`)
+            .delete(`https://studyo-server.vercel.app/assignment/${_id}`)
             .then((data) => {
               const remaining = assignments.filter((ass) => ass._id != id);
               setAssignments(remaining);

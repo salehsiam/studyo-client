@@ -27,18 +27,17 @@ const CreateAssignment = () => {
       description,
       creator_email,
     };
-    console.log(newAssignment);
+
     axios
-      .post("http://localhost:5000/assignments", newAssignment)
+      .post("https://studyo-server.vercel.app/assignments", newAssignment)
       .then((data) => {
-        console.log(data.data);
-        Swal.fire("SweetAlert2 is working!");
+        Swal.fire("Assignments submitted");
         form.reset();
       });
   };
   return (
-    <div>
-      <div className="mx-10 py-16 bg-primary p-10">
+    <div className="mt-10">
+      <div className="mx-10 py-16 bg-orange-200 p-10">
         <h2 className="text-4xl text-secondary font-semibold">
           Create Assignment
         </h2>
@@ -123,7 +122,7 @@ const CreateAssignment = () => {
             </div>
           </div>
           <div className="mt-8">
-            <button className="btn w-full bg-[#8da6d4] text-white">
+            <button className="btn w-full bg-green-900 text-white">
               Add Assignment
             </button>
           </div>
