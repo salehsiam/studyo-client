@@ -39,9 +39,9 @@ const MyAssignments = () => {
                     {assignment.assignments_marks}
                   </td>
                   <td className="text-center">
-                    {assignment.marks ? assignment.marks : "-"}
+                    {assignment.marks || "Not graded"}
                   </td>
-                  <td className="text-center">{assignment.feedback}</td>
+                  <td className="text-center">{assignment.feedback || "-"}</td>
                 </tr>
               ))}
             </tbody>

@@ -34,6 +34,8 @@ const AssDetails = () => {
       .post("http://localhost:5000/submittedAssignments", submitAssignment)
       .then((data) => {
         console.log(data.data);
+        setGoogleDocsLink("");
+        setQuickNote("");
       });
   };
   return (
@@ -91,7 +93,7 @@ const AssDetails = () => {
                   value={quickNote}
                   onChange={(e) => setQuickNote(e.target.value)}
                   name="note"
-                  rows={4}
+                  rows={2}
                   className="w-full border bg-orange-50 border-gray-300 rounded-lg px-3 py-2 focus:ring-1 focus:ring-blue-400 focus:outline-none"
                 ></textarea>
               </div>

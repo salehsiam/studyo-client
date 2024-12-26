@@ -2,6 +2,7 @@ import { data, Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { format } from "date-fns";
 
 const SingleAssignment = ({ assignment, assignments, setAssignments }) => {
   const {
@@ -69,7 +70,7 @@ const SingleAssignment = ({ assignment, assignments, setAssignments }) => {
         </div>
         <h2 className="card-title">{title}</h2>
         <p>{description?.substring(0, 100)}...</p>
-        <p>{dueDate}</p>
+        <p>{format(new Date(dueDate), "P")}</p>
         <div className="card-actions justify-between">
           <Link
             to={`/assignment/details/${_id}`}

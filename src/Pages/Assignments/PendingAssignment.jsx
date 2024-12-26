@@ -13,7 +13,7 @@ const PendingAssignment = () => {
   // Fetch submitted assignments
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/submittedAssignments?email=${user.email}`)
+      .get(`http://localhost:5000/submittedAssignments/${user.email}`)
       .then((data) => {
         setSubmittedAssignments(data.data);
       });
@@ -23,7 +23,7 @@ const PendingAssignment = () => {
   const openModal = (assignment) => {
     setSelectedAssignment(assignment);
     setIsModalOpen(true);
-    setMarks(""); // Clear previous inputs
+    setMarks("");
     setFeedback("");
   };
 
@@ -46,15 +46,12 @@ const PendingAssignment = () => {
         updatedData
       )
       .then((response) => {
-        alert("Marks and feedback submitted successfully!");
         setIsModalOpen(false);
         setSubmittedAssignments((prev) =>
-          prev.map((ass) =>
-            ass._id === selectedAssignment._id
-              ? { ...ass, assignments_marks: marks }
-              : ass
-          )
+          prev.filter((assignment) => assignment._id !== selectedAssignment._id)
         );
+        setIsModalOpen(false);
+        alert("Marks and feedback submitted successfully!");
       })
       .catch((error) => {
         console.error("Error updating assignment:", error);
@@ -71,7 +68,6 @@ const PendingAssignment = () => {
               <th>Title</th>
               <th className="text-center">Assignment Mark</th>
               <th className="text-center">Examinee Name</th>
-              <th className="text-center">Status</th>
               <th className="text-end">Action</th>
             </tr>
           </thead>
@@ -83,7 +79,6 @@ const PendingAssignment = () => {
                   {assignment.assignments_marks || "Not graded"}
                 </td>
                 <td className="text-center">{assignment.examinee_name}</td>
-                <td className="text-center">{assignment.status}</td>
                 <td className="text-end">
                   <button
                     onClick={() => openModal(assignment)}
@@ -106,6 +101,7 @@ const PendingAssignment = () => {
             <p>
               <strong>Docs:</strong>{" "}
               <a
+                target="_blank"
                 className="underline break-all"
                 href={selectedAssignment.googleDocsLink}
               >
