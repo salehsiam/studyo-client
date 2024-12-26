@@ -13,3 +13,7 @@
 body {
   font-family: "Roboto", serif;
 }
+
+html {
+  overflow-y: scroll;
+}

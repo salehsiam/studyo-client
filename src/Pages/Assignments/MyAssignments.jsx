@@ -7,7 +7,9 @@ const MyAssignments = () => {
   const [myAssignments, setMyAssignments] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/my-assignment/${user.email}`)
+      .get(`http://localhost:5000/my-assignment/${user.email}`, {
+        withCredentials: true,
+      })
       .then((data) => {
         console.log(data.data);
         setMyAssignments(data.data);
