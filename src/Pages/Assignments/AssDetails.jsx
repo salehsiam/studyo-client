@@ -43,7 +43,7 @@ const AssDetails = () => {
       });
   };
   return (
-    <div className="w-2/3 mx-auto rounded-md space-y-6 border border-orange-200 p-5">
+    <div className="lg:w-2/3 mx-auto rounded-md space-y-6 border mt-8 border-orange-200 p-5">
       <img
         className="h-[410px] w-full object-cover rounded-md"
         src={photo}

@@ -15,12 +15,7 @@ const PendingAssignment = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://studyo-server.vercel.app/submittedAssignments/${user.email}`,
-        {
-          withCredentials: true,
-        }
-      )
+      .get("https://studyo-server.vercel.app/submittedAssignments")
       .then((data) => {
         setSubmittedAssignments(data.data);
       });
@@ -64,7 +59,7 @@ const PendingAssignment = () => {
   };
 
   return (
-    <div>
+    <div className="mt-10">
       <h2 className="text-3xl font-semibold mb-4">Pending Assignments</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">

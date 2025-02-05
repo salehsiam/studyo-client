@@ -45,15 +45,15 @@ const Assignments = () => {
   return (
     <div className="mt-10">
       <div className="md:flex items-center px-6 justify-between  ">
-        <h2 className="md:text-4xl text-3xl mb-4 font-semibold">
+        <h2 className="md:text-4xl flex-1 text-3xl mb-4 font-semibold">
           All Assignments
         </h2>
         <div className="flex justify-between items-center gap-4">
           <label
             onChange={handleSearch}
-            className="input input-bordered  flex items-center gap-2"
+            className="input input-bordered flex items-center gap-2"
           >
-            <input type="text" className="grow" placeholder="Search" />
+            <input type="text" className="grow w-2/3" placeholder="Search" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"

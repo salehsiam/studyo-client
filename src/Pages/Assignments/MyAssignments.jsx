@@ -15,8 +15,8 @@ const MyAssignments = () => {
       });
   }, [user.email]);
   return (
-    <div>
-      <h2 className="text-3xl font-semibold">My Assignments</h2>
+    <div className="mt-10">
+      <h2 className="text-3xl font-semibold mb-4">My Assignments</h2>
       <div>
         <div className="overflow-x-auto">
           <table className="table table-zebra">

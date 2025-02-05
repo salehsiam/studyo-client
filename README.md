@@ -6,7 +6,7 @@ The Group Study Platform is a web application designed to facilitate collaborati
 
 ## Live URL
 
-[Visit the Live Website](#https://studyo-7b463.web.app/)
+**[Live Demo](https://studyo-7b463.web.app/)**
 
 ## Key Features
 

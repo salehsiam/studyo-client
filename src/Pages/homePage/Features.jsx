@@ -17,7 +17,7 @@ const Features = () => {
         grading, <br /> and interactive group study sessions for all fields of
         learning.
       </p>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {featuresAssignments.map((assignment) => (
           <Card assignment={assignment} key={assignment._id}></Card>
         ))}
