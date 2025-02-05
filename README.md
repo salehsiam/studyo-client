@@ -42,12 +42,11 @@
 ## 🛠 Installation & Setup
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/your-username/studyo.git
+   git clone https://github.com/salehsiam/studyo-client.git
    cd studyo
    ```
-
-````
 
 2. **Install dependencies**
    ```bash
@@ -100,4 +99,7 @@ This project is **private** and not currently open for public use. If you’d li
 
 Would you like any further customizations? 🚀
 ```
-````
+
+```
+
+```
