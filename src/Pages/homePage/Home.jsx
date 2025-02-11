@@ -4,7 +4,7 @@ import Features from "./Features";
 
 const Home = () => {
   return (
-    <div>
+    <div className="space-y-16">
       <Banner></Banner>
       <Features></Features>
       <Faq></Faq>

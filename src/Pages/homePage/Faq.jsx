@@ -3,7 +3,7 @@ import image from "./../../assets/vecteezy_remote-work-and-digital-nomad-woman-w
 
 const Faq = () => {
   return (
-    <div className="relative mt-10 border rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-center p-6">
+    <div className="relative border rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-center p-6">
       {/* Left Section */}
       <div className="flex-1 relative">
         {/* Background Shapes */}

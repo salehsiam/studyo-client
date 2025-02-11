@@ -10,7 +10,7 @@ const Features = () => {
     });
   }, []);
   return (
-    <div className="my-16 mx-8">
+    <div className="">
       <h2 className="text-4xl font-semibold text-center mb-2">Our features</h2>
       <p className="text-center mb-4 ">
         Empowering collaboration with seamless assignment creation, peer

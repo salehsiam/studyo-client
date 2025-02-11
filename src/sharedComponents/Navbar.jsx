@@ -8,6 +8,60 @@ const Navbar = () => {
   return (
     <div className="navbar w-11/12 mx-auto">
       <div className="navbar-start">
+        <div className="dropdown ">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn text-white btn-ghost lg:hidden"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu right-0 menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          >
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "underline text-secondary font-semibold" : ""}`
+                }
+                to="/assignments"
+              >
+                Assignments
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "underline text-secondary font-semibold" : ""}`
+                }
+                to="/pending-assignments"
+              >
+                Pending Assignments
+              </NavLink>
+            </li>
+            <li>
+              {user ? (
+                <button>Logout</button>
+              ) : (
+                <NavLink to="/login">Login</NavLink>
+              )}
+            </li>
+          </ul>
+        </div>
         <a
           onClick={() => {
             navigate("/");
@@ -102,64 +156,6 @@ const Navbar = () => {
               </ul>
             </div>
           )}
-          <div className="dropdown ">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn text-white btn-ghost lg:hidden"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu right-0 menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    `${
-                      isActive ? "underline text-secondary font-semibold" : ""
-                    }`
-                  }
-                  to="/assignments"
-                >
-                  Assignments
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    `${
-                      isActive ? "underline text-secondary font-semibold" : ""
-                    }`
-                  }
-                  to="/pending-assignments"
-                >
-                  Pending Assignments
-                </NavLink>
-              </li>
-              <li>
-                {user ? (
-                  <button>Logout</button>
-                ) : (
-                  <NavLink to="/login">Login</NavLink>
-                )}
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
