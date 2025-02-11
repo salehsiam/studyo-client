@@ -5,11 +5,12 @@ import { Toaster } from "react-hot-toast";
 
 const MainLayout = () => {
   return (
-    <div className="bg-[#FFFDE7]">
-      <nav className="bg-background py-4 max-w-7xl mx-auto">
+    <div className="">
+      <nav className="flex justify-center">
         <Navbar></Navbar>
       </nav>
-      <main className="max-w-7xl mx-auto min-h-[calc(100vh-345px)] mb-10">
+
+      <main className=" mx-auto min-h-[calc(100vh-345px)] mb-10">
         <Outlet></Outlet>
       </main>
       <footer>

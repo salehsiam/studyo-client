@@ -6,7 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   return (
-    <div className="navbar w-11/12 mx-auto">
+    <div className="navbar bg-black bg-opacity-50 fixed z-10 mx-auto">
       <div className="navbar-start">
         <div className="dropdown ">
           <div
