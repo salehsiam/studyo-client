@@ -11,8 +11,8 @@ const Home = () => {
       <div className="max-w-7xl mx-auto px-6 space-y-16">
         <Features></Features>
         <NewReleases></NewReleases>
-        {/* <Faq></Faq>
-        <Newsletter></Newsletter> */}
+        <Faq></Faq>
+        <Newsletter></Newsletter>
       </div>
     </div>
   );
