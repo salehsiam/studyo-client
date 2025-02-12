@@ -37,7 +37,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  `${isActive ? "underline text-secondary font-semibold" : ""}`
+                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
                 }
                 to="/assignments"
               >
@@ -47,7 +47,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  `${isActive ? "underline text-secondary font-semibold" : ""}`
+                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
                 }
                 to="/pending-assignments"
               >
@@ -67,7 +67,7 @@ const Navbar = () => {
           onClick={() => {
             navigate("/");
           }}
-          className="logo text-yellow-300 font-semibold text-2xl lg:text-3xl"
+          className="logo text-green-500 font-semibold text-2xl lg:text-3xl"
         >
           Studyo
         </a>
@@ -79,7 +79,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  `${isActive ? "underline text-yellow-500 font-semibold" : ""}`
+                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
                 }
                 to="/"
               >
@@ -90,7 +90,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  `${isActive ? "underline text-yellow-500 font-semibold" : ""}`
+                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
                 }
                 to="/assignments"
               >
@@ -102,7 +102,7 @@ const Navbar = () => {
                 <NavLink
                   className={({ isActive }) =>
                     `${
-                      isActive ? "underline text-yellow-500 font-semibold" : ""
+                      isActive ? "underline text-green-500 font-semibold" : ""
                     }`
                   }
                   to="/pending-assignments"
@@ -115,7 +115,7 @@ const Navbar = () => {
               {user ? (
                 <button
                   onClick={() => logout()}
-                  className="btn bg-yellow-400 px-6 rounded-2xl border-none"
+                  className="btn bg-green-500 text-gray-100 px-6 rounded-2xl border-none"
                 >
                   Logout
                 </button>

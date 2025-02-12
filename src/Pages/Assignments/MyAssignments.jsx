@@ -24,7 +24,7 @@ const MyAssignments = () => {
   if (myAssignments.length === 0) {
     return (
       <>
-        <div className="flex items-center justify-center pt-24">
+        <div className="flex flex-col md:flex-row items-center justify-center pt-24">
           <div>
             <Lottie animationData={noFound} loop={true} />
           </div>
@@ -38,7 +38,7 @@ const MyAssignments = () => {
   }
 
   return (
-    <div className="pt-8 md:pt-16 lg:pt-24 max-w-7xl mx-auto">
+    <div className="pt-8 px-8 md:pt-16 lg:pt-24 max-w-7xl mx-auto">
       <h2 className="text-3xl font-semibold mb-4">My Assignments</h2>
       <div>
         <div className="overflow-x-auto">

@@ -15,7 +15,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Banner = () => {
   const navigate = useNavigate();
   return (
-    <div className=" lg:max-h-screen ">
+    <div className="lg:max-h-screen">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -28,7 +28,7 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div
-            className="relative w-full h-[660px] bg-cover lg:min-h-screen"
+            className="relative w-full h-[560px] bg-cover lg:min-h-screen"
             style={{
               backgroundImage: `url('${image1}')`,
               backgroundSize: "cover",
@@ -38,17 +38,18 @@ const Banner = () => {
             <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white p-4">
               <div className="md:ml-12 lg:ml-24">
                 <h1 className="text-3xl md:text-5xl text-white font-bold mb-4">
-                  Your Digital Study Room Awaits!
+                  Your Digital <span className="text-blue-600">Study</span>{" "}
+                  <br /> Room Awaits!
                 </h1>
-                <p className="w-1/2 mb-6 text-orange-100">
+                <p className="lg:w-1/2 mb-6 text-orange-100">
                   Turn studying into a team effort! With interactive features
                   like shared assignments, peer reviews, and real-time
                   discussions, our platform is designed to make group study
                   seamless and productive. Join today and make learning a shared
                   adventure!
                 </p>
-                <button className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg">
-                  Explore Campaigns
+                <button className="px-6 py-3 bg-green-500 hover:bg-orange-600 text-white font-semibold rounded-lg">
+                  Explore
                 </button>
               </div>
             </div>
@@ -57,7 +58,7 @@ const Banner = () => {
 
         <SwiperSlide>
           <div
-            className="relative w-full h-[660px] lg:min-h-screen"
+            className="relative w-full h-[560px] lg:min-h-screen"
             style={{
               backgroundImage: `url('${banner1}')`,
               backgroundSize: "cover",
@@ -67,17 +68,18 @@ const Banner = () => {
             <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white p-4">
               <div className="md:ml-12 lg:ml-24">
                 <h1 className="text-3xl md:text-5xl text-white font-bold mb-4">
-                  Connect, Study, Achieve!
+                  Connect, Study,{" "}
+                  <span className="text-blue-600">Achieve!</span>
                 </h1>
-                <p className="w-1/2 mb-6 text-orange-100">
+                <p className="lg:w-1/2 mb-6 text-orange-100">
                   Boost your learning experience by joining a study group!
                   Discuss topics, exchange notes, and get feedback on
                   assignments—all in one place. Whether you're working on a
                   tough project or revising for exams, teamwork makes studying
                   more effective and enjoyable.
                 </p>
-                <button className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg">
-                  Explore Campaigns
+                <button className="px-6 py-3 bg-green-500 hover:bg-orange-600 text-white font-semibold rounded-lg">
+                  Explore
                 </button>
               </div>
             </div>
@@ -86,7 +88,7 @@ const Banner = () => {
 
         <SwiperSlide>
           <div
-            className="relative w-full h-[660px]  lg:min-h-screen"
+            className="relative w-full h-[560px]  lg:min-h-screen"
             style={{
               backgroundImage: `url('${banner2}')`,
               backgroundSize: "cover",
@@ -96,16 +98,22 @@ const Banner = () => {
             <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-white p-4">
               <div className="md:ml-12 lg:ml-24">
                 <h1 className="text-3xl md:text-5xl text-white font-bold mb-4">
-                  Collaborate, Learn, <br /> and Succeed Together
+                  Collaborate, Learn, and <br />
+                  <span className="text-blue-600">Succeed </span> Together
                 </h1>
-                <p className="w-1/2 mb-6 text-orange-100">
+                <p className="lg:w-1/2 mb-6 text-orange-100">
                   Join our interactive platform to connect with friends, share
                   knowledge, and achieve academic excellence. Create
                   assignments, challenge your peers, and grow as a team. Make
                   learning fun and rewarding!
                 </p>
-                <button className="px-6 py-3 bg-orange-500 hover:bg-orange-700 text-white font-semibold rounded-lg">
-                  Explore Campaigns
+                <button
+                  onClick={() => {
+                    navigate("/assignments");
+                  }}
+                  className="px-6 py-3 bg-green-500 hover:bg-orange-700 text-white font-semibold rounded-lg"
+                >
+                  Explore
                 </button>
               </div>
             </div>

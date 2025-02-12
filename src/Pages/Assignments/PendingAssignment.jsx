@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import Loading from "../../loading/Loading";
+import Lottie from "lottie-react";
+import noFound from "./../../assets/lottie/no.json";
 
 const PendingAssignment = () => {
   const [submittedAssignments, setSubmittedAssignments] = useState([]);
@@ -63,9 +65,28 @@ const PendingAssignment = () => {
 
   if (loading) return <Loading></Loading>;
 
+  if (submittedAssignments.length === 0) {
+    return (
+      <>
+        <div className="flex flex-col md:flex-row items-center justify-center pt-24">
+          <div>
+            <Lottie animationData={noFound} loop={true} />
+          </div>
+          <div>
+            <h2 className="text-3xl font-semibold">
+              No Assignments is pending!
+            </h2>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div className="pt-24 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-semibold mb-4">Pending Assignments</h2>
+    <div className="pt-24 px-8 max-w-7xl mx-auto">
+      <h2 className="text-3xl text-green-600 font-semibold mb-4">
+        Pending Assignments
+      </h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           <thead>
@@ -87,7 +108,7 @@ const PendingAssignment = () => {
                 <td className="text-end">
                   <button
                     onClick={() => openModal(assignment)}
-                    className="btn btn-xs w-20 bg-green-900 hover:bg-orange-600 text-white"
+                    className="btn btn-xs w-20 bg-green-500 hover:bg-orange-600 text-white"
                   >
                     Give Mark
                   </button>

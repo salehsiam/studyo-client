@@ -11,11 +11,11 @@ const Card = ({ assignment }) => {
           alt={title}
         />
         <div className="absolute bottom-0 right-0">
-          <p className="badge rounded-none bg-accent text-secondary py-3">
+          <p className="badge rounded-none bg-blue-600 text-secondary py-3">
             {" "}
             Marks: {marks}
           </p>
-          <p className="badge rounded-none bg-primary text-secondary py-3">
+          <p className="badge rounded-none bg-green-500 text-secondary py-3">
             {" "}
             {level}
           </p>
@@ -30,7 +30,7 @@ const Card = ({ assignment }) => {
         <div className="card-actions justify-between">
           <Link
             to={`/assignment/details/${_id}`}
-            className="bg-accent text-white px-5 py-1 rounded-md"
+            className="bg-green-500 text-white px-5 py-1 rounded-md"
           >
             View
           </Link>
