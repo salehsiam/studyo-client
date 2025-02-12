@@ -21,10 +21,11 @@ const Card = ({ assignment }) => {
           </p>
         </div>
       </div>
-      <div className="p-4 space-y-1">
-        <div className="flex gap-4"></div>
-        <h2 className="card-title">{title}</h2>
-        <p>{description?.substring(0, 80)}...</p>
+      <div className="p-4 flex flex-col grow space-y-1">
+        <div className="flex flex-col grow">
+          <h2 className="card-title">{title}</h2>
+          <p>{description?.substring(0, 80)}...</p>
+        </div>
         {/* <p>{format(new Date(dueDate), "P")}</p> */}
         <div className="card-actions justify-between">
           <Link

@@ -6,11 +6,11 @@ import { Toaster } from "react-hot-toast";
 const MainLayout = () => {
   return (
     <div className="">
-      <nav className="flex justify-center">
+      <nav className="flex justify-center bg-black bg-opacity-50 fixed z-10 w-full">
         <Navbar></Navbar>
       </nav>
 
-      <main className=" mx-auto min-h-[calc(100vh-345px)] mb-10">
+      <main className=" mx-auto min-h-[calc(100vh-345px)] py-16 mb-10">
         <Outlet></Outlet>
       </main>
       <footer>

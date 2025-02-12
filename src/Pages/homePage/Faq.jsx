@@ -1,6 +1,7 @@
 import React from "react";
 import image from "./../../assets/vecteezy_remote-work-and-digital-nomad-woman-working-from-anywhere_47248794.png";
-
+import faq from "./../../assets/lottie/faq.json";
+import Lottie from "lottie-react";
 const Faq = () => {
   return (
     <div className="relative border rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-center p-6">
@@ -11,7 +12,8 @@ const Faq = () => {
           <div className="bg-orange-300 h-full w-full rounded-tl-[400px] rounded-bl-[200px]"></div>
         </div> */}
 
-        <img src={image} alt="" className="relative z-10 w-3/4 mx-auto" />
+        {/* <img src={image} alt="" className="relative z-10 w-3/4 mx-auto" /> */}
+        <Lottie animationData={faq} loop={true} />
       </div>
 
       {/* Right Section */}

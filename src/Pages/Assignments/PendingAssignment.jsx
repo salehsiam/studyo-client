@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import Loading from "../../loading/Loading";
 
 const PendingAssignment = () => {
   const [submittedAssignments, setSubmittedAssignments] = useState([]);
@@ -10,6 +11,7 @@ const PendingAssignment = () => {
   const [marks, setMarks] = useState("");
   const [feedback, setFeedback] = useState("");
   const { user } = useAuth();
+  const [loading, setLoading] = useState(true);
 
   // Fetch submitted assignments
 
@@ -18,6 +20,7 @@ const PendingAssignment = () => {
       .get("https://studyo-server.vercel.app/submittedAssignments")
       .then((data) => {
         setSubmittedAssignments(data.data);
+        setLoading(false);
       });
   }, [user.email]);
 
@@ -58,8 +61,10 @@ const PendingAssignment = () => {
       .catch((error) => {});
   };
 
+  if (loading) return <Loading></Loading>;
+
   return (
-    <div className="mt-10">
+    <div className="mt-10 max-w-7xl mx-auto">
       <h2 className="text-3xl font-semibold mb-4">Pending Assignments</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">

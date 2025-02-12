@@ -1,12 +1,13 @@
 import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   return (
-    <div className="navbar bg-black bg-opacity-50 fixed z-10 mx-auto">
+    <div className="navbar max-w-7xl px-8">
       <div className="navbar-start">
         <div className="dropdown ">
           <div
@@ -132,7 +133,7 @@ const Navbar = () => {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost btn-circle avatar"
+                className="btn btn-ghost relative btn-circle avatar"
               >
                 <div className="w-8 rounded-full">
                   <img
@@ -141,6 +142,7 @@ const Navbar = () => {
                     alt="User"
                     src={user.photoURL}
                   />
+                  <MdOutlineKeyboardArrowDown className="text-white absolute bottom-0 right-2 text-2xl" />
                 </div>
               </div>
               <ul

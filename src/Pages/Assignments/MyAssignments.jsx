@@ -15,7 +15,7 @@ const MyAssignments = () => {
       });
   }, [user.email]);
   return (
-    <div className="mt-10">
+    <div className="mt-10 max-w-7xl mx-auto">
       <h2 className="text-3xl font-semibold mb-4">My Assignments</h2>
       <div>
         <div className="overflow-x-auto">
