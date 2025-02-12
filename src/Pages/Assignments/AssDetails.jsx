@@ -43,29 +43,38 @@ const AssDetails = () => {
       });
   };
   return (
-    <div className="lg:w-2/3 mx-auto rounded-md space-y-6 border mt-8 border-orange-200 p-5">
-      <img
-        className="h-[410px] w-full object-cover rounded-md"
-        src={photo}
-        alt={title}
-      />
-      <p className="badge bg-green-900 text-white px-5 py-4">Level: {level}</p>
+    <div className="lg:pt-20 md:pt-16 pt-8">
+      <div className="flex flex-col lg:flex-row items-center gap-8 mx-auto mt-16 rounded-md border border-orange-200 p-5">
+        <div className="lg:w-1/2">
+          <img
+            className="h-[410px] w-full object-cover rounded-md"
+            src={photo}
+            alt={title}
+          />
+        </div>
+        <div className="lg:w-1/2 space-y-4">
+          <p className="badge bg-green-900 text-white px-5 py-4">
+            Level: {level}
+          </p>
 
-      <h2 className="text-3xl font-semibold"> {title}</h2>
-      <p>{description}</p>
-      <div className="flex gap-16 items-center">
-        <p className="badge font-semibold px-5 py-4">Total-Marks: {marks}</p>
-        <p className="badge font-semibold px-5 py-4">
-          Date: {format(new Date(dueDate), "P")}
-        </p>
+          <h2 className="text-3xl font-semibold"> {title}</h2>
+          <p>{description}</p>
+          <div className="flex gap-16 items-center">
+            <p className="badge font-semibold px-5 py-4">
+              Total-Marks: {marks}
+            </p>
+            <p className="badge font-semibold px-5 py-4">
+              Date: {format(new Date(dueDate), "P")}
+            </p>
+          </div>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="btn bg-transparent border-green-900 text-green-900 hover:bg-green-900 hover:text-white"
+          >
+            Take Assignment
+          </button>
+        </div>
       </div>
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className="btn bg-transparent border-green-900 text-green-900 hover:bg-green-900 hover:text-white"
-      >
-        Take Assignment
-      </button>
-
       {/* Modal  */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">

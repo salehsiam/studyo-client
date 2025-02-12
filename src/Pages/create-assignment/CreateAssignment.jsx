@@ -36,7 +36,7 @@ const CreateAssignment = () => {
       });
   };
   return (
-    <div className="mt-10">
+    <div className="lg:pt-24 md:pt-16 pt-8">
       <div className="md:mx-10 py-16 bg-orange-200 p-10">
         <h2 className="text-4xl text-secondary font-semibold">
           Create Assignment

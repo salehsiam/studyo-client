@@ -55,7 +55,7 @@ const Assignments = () => {
   if (loading) return <Loading></Loading>;
 
   return (
-    <div className="mt-10">
+    <div className="pt-24">
       <div className="md:flex items-center px-6 justify-between  ">
         <h2 className="md:text-4xl flex-1 text-3xl mb-4 font-semibold">
           All Assignments
@@ -104,7 +104,7 @@ const Assignments = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-5 mt-4  gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-5 mt-4 gap-10">
         {assignments.map((assignment) => (
           <SingleAssignment
             setAssignments={setAssignments}

@@ -64,7 +64,7 @@ const PendingAssignment = () => {
   if (loading) return <Loading></Loading>;
 
   return (
-    <div className="mt-10 max-w-7xl mx-auto">
+    <div className="pt-24 max-w-7xl mx-auto">
       <h2 className="text-3xl font-semibold mb-4">Pending Assignments</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">

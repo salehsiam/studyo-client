@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import Loading from "../../loading/Loading";
+import Lottie from "lottie-react";
+import noFound from "./../../assets/lottie/nofound.json";
 
 const MyAssignments = () => {
   const { user } = useAuth();
   const [myAssignments, setMyAssignments] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
       .get(`https://studyo-server.vercel.app/my-assignment/${user.email}`, {
@@ -12,10 +16,29 @@ const MyAssignments = () => {
       })
       .then((data) => {
         setMyAssignments(data.data);
+        setLoading(false);
       });
   }, [user.email]);
+  if (loading) return <Loading></Loading>;
+
+  if (myAssignments.length === 0) {
+    return (
+      <>
+        <div className="flex items-center justify-center pt-24">
+          <div>
+            <Lottie animationData={noFound} loop={true} />
+          </div>
+          <div>
+            <h2 className="text-3xl font-semibold">Nothing to show!</h2>
+            <p>Please take a assignments</p>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div className="mt-10 max-w-7xl mx-auto">
+    <div className="pt-8 md:pt-16 lg:pt-24 max-w-7xl mx-auto">
       <h2 className="text-3xl font-semibold mb-4">My Assignments</h2>
       <div>
         <div className="overflow-x-auto">

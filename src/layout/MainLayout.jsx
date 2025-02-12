@@ -10,7 +10,7 @@ const MainLayout = () => {
         <Navbar></Navbar>
       </nav>
 
-      <main className=" mx-auto min-h-[calc(100vh-345px)] py-16 mb-10">
+      <main className=" mx-auto min-h-[calc(100vh-345px)] mb-10">
         <Outlet></Outlet>
       </main>
       <footer>

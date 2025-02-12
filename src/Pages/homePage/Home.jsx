@@ -9,8 +9,8 @@ const Home = () => {
       <Banner></Banner>
       <div className="max-w-7xl mx-auto px-6 space-y-16">
         <Features></Features>
-        <Faq></Faq>
-        <Newsletter></Newsletter>
+        {/* <Faq></Faq>
+        <Newsletter></Newsletter> */}
       </div>
     </div>
   );
