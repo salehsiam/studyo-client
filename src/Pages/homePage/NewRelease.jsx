@@ -3,20 +3,22 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import Loading from "../../loading/Loading";
 
-const Features = () => {
-  const [featuresAssignments, setFeaturesAssignments] = useState([]);
+const NewReleases = () => {
+  const [newReleases, setNewReleases] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios.get("https://studyo-server.vercel.app/features").then((res) => {
-      setFeaturesAssignments(res.data);
-      setLoading(false);
-    });
+    axios
+      .get("https://studyo-server.vercel.app/new-assignments")
+      .then((res) => {
+        setNewReleases(res.data);
+        setLoading(false);
+      });
   }, []);
   if (loading) return <Loading></Loading>;
   return (
     <div>
       <h2 className="text-4xl text-blue-600 font-semibold text-center mb-2">
-        Our features
+        New Releases
       </h2>
       <p className="text-center mb-4 ">
         Empowering collaboration with seamless assignment creation, peer
@@ -24,7 +26,7 @@ const Features = () => {
         learning.
       </p>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-        {featuresAssignments.map((assignment) => (
+        {newReleases.map((assignment) => (
           <Card assignment={assignment} key={assignment._id}></Card>
         ))}
       </div>
@@ -32,4 +34,4 @@ const Features = () => {
   );
 };
 
-export default Features;
+export default NewReleases;

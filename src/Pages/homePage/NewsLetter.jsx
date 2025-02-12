@@ -33,7 +33,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="relative py-16 px-6 md:px-12 bg-gradient-to-r from-purple-500 to-orange-500">
+    <section className="relative py-16 px-6 md:px-12 bg-gradient-to-r from-blue-600 to-green-500">
       <div className="max-w-3xl mx-auto text-center">
         <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg">
           <Lottie

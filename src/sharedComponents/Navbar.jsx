@@ -67,7 +67,7 @@ const Navbar = () => {
           onClick={() => {
             navigate("/");
           }}
-          className="logo text-green-500 font-semibold text-2xl lg:text-3xl"
+          className="logo text-white font-semibold text-2xl lg:text-3xl"
         >
           Studyo
         </a>
@@ -95,6 +95,16 @@ const Navbar = () => {
                 to="/assignments"
               >
                 Assignments
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
+                }
+                to="/resources-notes"
+              >
+                Resources
               </NavLink>
             </li>
             <li>

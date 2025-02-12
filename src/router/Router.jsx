@@ -10,6 +10,7 @@ import AssDetails from "../Pages/Assignments/AssDetails";
 import UpdatedAssignment from "../Pages/Assignments/UpdatedAssignment";
 import MyAssignments from "../Pages/Assignments/MyAssignments";
 import PrivateRoute from "./PrivateRoute";
+import ResourcesNotes from "../Pages/Assignments/ResourcesNotes";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
         element: <UpdatedAssignment></UpdatedAssignment>,
         loader: ({ params }) =>
           fetch(`https://studyo-server.vercel.app/assignment/${params.id}`),
+      },
+      {
+        path: "resources-notes",
+        element: <ResourcesNotes></ResourcesNotes>,
       },
     ],
   },
