@@ -56,8 +56,8 @@ const Assignments = () => {
 
   return (
     <div className="pt-24">
-      <div className="md:flex items-center px-6 justify-between  ">
-        <h2 className="md:text-4xl flex-1 text-3xl mb-4 font-semibold">
+      <div className="md:flex items-center px-4 justify-between  ">
+        <h2 className="md:text-4xl text-primary flex-1 text-3xl mb-4 font-semibold">
           All Assignments
         </h2>
         <div className="flex justify-between items-center gap-4">
@@ -83,7 +83,7 @@ const Assignments = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn m-1 bg-green-900 text-white hover:bg-green-700"
+              className="btn m-1 bg-primary text-white hover:bg-green-700"
             >
               Filter
             </div>

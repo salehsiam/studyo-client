@@ -38,8 +38,10 @@ const MyAssignments = () => {
   }
 
   return (
-    <div className="pt-8 px-8 md:pt-16 lg:pt-24 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-semibold mb-4">My Assignments</h2>
+    <div className=" px-8 pt-24 max-w-7xl mx-auto">
+      <h2 className="text-3xl text-primary font-semibold mb-4">
+        My Assignments
+      </h2>
       <div>
         <div className="overflow-x-auto">
           <table className="table table-zebra">

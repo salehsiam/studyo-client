@@ -8,14 +8,14 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-gray-100 py-12">
-      <div className="container mx-auto px-6 md:px-12">
+    <footer className="bg-primary text-gray-100 py-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand and About */}
           <div>
-            <h2 className="text-2xl font-bold text-orange-400 mb-4">Studyo</h2>
-            <p className="text-sm">
+            <h2 className="text-2xl font-bold text-white mb-4">Studyo</h2>
+            <p className="text-sm text-accent">
               Join hands with your friends to excel academically. Create, share,
               and grade assignments together in a collaborative environment.
             </p>
@@ -23,15 +23,15 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div>
-            <h3 className="text-lg font-semibold text-orange-400 mb-4">
+            <h3 className="text-lg font-semibold text-white mb-4">
               Contact Us
             </h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-accent text-sm">
               <li>
                 <strong>Email:</strong>{" "}
                 <a
                   href="mailto:support@groupstudyapp.com"
-                  className="hover:text-orange-300 transition duration-300"
+                  className="hover:text-secondary transition duration-300"
                 >
                   support@groupstudyapp.com
                 </a>
@@ -40,7 +40,7 @@ const Footer = () => {
                 <strong>Phone:</strong>{" "}
                 <a
                   href="tel:+123456789"
-                  className="hover:text-orange-300 transition duration-300"
+                  className="hover:text-secondary transition duration-300"
                 >
                   +123 456 789
                 </a>
@@ -53,15 +53,13 @@ const Footer = () => {
 
           {/* Social Media Links */}
           <div>
-            <h3 className="text-lg font-semibold text-orange-400 mb-4">
-              Follow Us
-            </h3>
+            <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
             <div className="flex space-x-4">
               <a
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-700 rounded-full hover:bg-orange-400 transition duration-300"
+                className="p-3 bg-gray-700 rounded-full hover:bg-secondary transition duration-300"
               >
                 <FaFacebookF />
               </a>
@@ -69,7 +67,7 @@ const Footer = () => {
                 href="https://www.twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-700 rounded-full hover:bg-orange-400 transition duration-300"
+                className="p-3 bg-gray-700 rounded-full hover:bg-secondary transition duration-300"
               >
                 <FaTwitter />
               </a>
@@ -77,7 +75,7 @@ const Footer = () => {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-700 rounded-full hover:bg-orange-400 transition duration-300"
+                className="p-3 bg-gray-700 rounded-full hover:bg-secondary transition duration-300"
               >
                 <FaInstagram />
               </a>
@@ -85,7 +83,7 @@ const Footer = () => {
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-700 rounded-full hover:bg-orange-400 transition duration-300"
+                className="p-3 bg-gray-700 rounded-full hover:bg-secondary transition duration-300"
               >
                 <FaLinkedinIn />
               </a>

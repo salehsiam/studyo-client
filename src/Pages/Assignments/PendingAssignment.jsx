@@ -83,8 +83,8 @@ const PendingAssignment = () => {
   }
 
   return (
-    <div className="pt-24 px-8 max-w-7xl mx-auto">
-      <h2 className="text-3xl text-green-600 font-semibold mb-4">
+    <div className="pt-24 px-4 max-w-7xl mx-auto">
+      <h2 className="text-3xl text-primary font-semibold mb-4">
         Pending Assignments
       </h2>
       <div className="overflow-x-auto">
@@ -108,7 +108,7 @@ const PendingAssignment = () => {
                 <td className="text-end">
                   <button
                     onClick={() => openModal(assignment)}
-                    className="btn btn-xs w-20 bg-green-500 hover:bg-orange-600 text-white"
+                    className="btn btn-xs w-20 bg-secondary hover:bg-primary text-white"
                   >
                     Give Mark
                   </button>

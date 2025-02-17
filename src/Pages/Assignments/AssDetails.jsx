@@ -43,7 +43,7 @@ const AssDetails = () => {
       });
   };
   return (
-    <div className="lg:pt-20 md:pt-16 pt-8">
+    <div className="lg:pt-20 md:pt-16 pt-8 px-4">
       <div className="flex flex-col lg:flex-row items-center gap-8 mx-auto mt-16 rounded-md border border-orange-200 p-5">
         <div className="lg:w-1/2">
           <img

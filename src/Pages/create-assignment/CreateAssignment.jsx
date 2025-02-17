@@ -38,7 +38,7 @@ const CreateAssignment = () => {
   return (
     <div className="lg:pt-24  md:pt-16 pt-8">
       <div className="md:mx-10 py-16  p-10">
-        <h2 className="text-4xl text-green-500 font-semibold">
+        <h2 className="text-4xl text-primary font-semibold">
           Create Assignment
         </h2>
         <form onSubmit={handleAddAssignment}>
@@ -122,7 +122,7 @@ const CreateAssignment = () => {
             </div>
           </div>
           <div className="mt-8">
-            <button className="btn w-full bg-green-600 text-white">
+            <button className="btn w-full bg-secondary hover:bg-primary text-white">
               Add Assignment
             </button>
           </div>

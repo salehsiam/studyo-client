@@ -11,6 +11,7 @@ import UpdatedAssignment from "../Pages/Assignments/UpdatedAssignment";
 import MyAssignments from "../Pages/Assignments/MyAssignments";
 import PrivateRoute from "./PrivateRoute";
 import ResourcesNotes from "../Pages/Assignments/ResourcesNotes";
+import Error from "../sharedComponents/Error";
 
 const router = createBrowserRouter([
   {
@@ -68,7 +69,11 @@ const router = createBrowserRouter([
       },
       {
         path: "resources-notes",
-        element: <ResourcesNotes></ResourcesNotes>,
+        element: (
+          <PrivateRoute>
+            <ResourcesNotes></ResourcesNotes>
+          </PrivateRoute>
+        ),
       },
     ],
   },

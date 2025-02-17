@@ -1,7 +1,13 @@
+import Lottie from "lottie-react";
+import error from "./../assets/lottie/error.json";
+
 const Error = () => {
   return (
-    <div>
-      <h2 className="text-4xl"> 404 Error page </h2>
+    <div className="bg-accent min-h-screen">
+      <div className="flex flex-col justify-center items-center">
+        <Lottie className="" animationData={error} loop={true} />
+        <h2 className="text-3xl font-semibold">404 Error</h2>
+      </div>
     </div>
   );
 };

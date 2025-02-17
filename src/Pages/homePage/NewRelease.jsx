@@ -17,10 +17,10 @@ const NewReleases = () => {
   if (loading) return <Loading></Loading>;
   return (
     <div>
-      <h2 className="text-4xl text-blue-600 font-semibold text-center mb-2">
+      <h2 className="text-4xl text-primary font-semibold text-center mb-2">
         New Releases
       </h2>
-      <p className="text-center mb-4 ">
+      <p className="text-center text-secondary mb-4 ">
         Empowering collaboration with seamless assignment creation, peer
         grading, <br /> and interactive group study sessions for all fields of
         learning.

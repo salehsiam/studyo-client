@@ -5,8 +5,8 @@ import { Toaster } from "react-hot-toast";
 
 const MainLayout = () => {
   return (
-    <div className="">
-      <nav className="flex justify-center bg-green-500 bg-opacity-50 fixed z-10 w-full">
+    <div className="bg-accent">
+      <nav className="flex justify-center bg-primary backdrop-blur-xl fixed top-0 z-10 w-full">
         <Navbar></Navbar>
       </nav>
 

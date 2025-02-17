@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   return (
-    <div className="navbar max-w-7xl px-8">
+    <div className="navbar max-w-7xl md:px-8">
       <div className="navbar-start">
         <div className="dropdown ">
           <div
@@ -45,67 +45,18 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
-                }
-                to="/pending-assignments"
-              >
-                Pending Assignments
-              </NavLink>
-            </li>
-            <li>
-              {user ? (
-                <button>Logout</button>
-              ) : (
-                <NavLink to="/login">Login</NavLink>
+              {user && (
+                <NavLink
+                  className={({ isActive }) =>
+                    `${
+                      isActive ? "underline text-green-500 font-semibold" : ""
+                    }`
+                  }
+                  to="/resources-notes"
+                >
+                  Resources
+                </NavLink>
               )}
-            </li>
-          </ul>
-        </div>
-        <a
-          onClick={() => {
-            navigate("/");
-          }}
-          className="logo text-white font-semibold text-2xl lg:text-3xl"
-        >
-          Studyo
-        </a>
-      </div>
-
-      <div className="navbar-end items-center ">
-        <div className=" hidden text-white lg:flex">
-          <ul className="gap-5 items-center menu-horizontal px-1">
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
-                }
-                to="/"
-              >
-                Home
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
-                }
-                to="/assignments"
-              >
-                Assignments
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `${isActive ? "underline text-green-500 font-semibold" : ""}`
-                }
-                to="/resources-notes"
-              >
-                Resources
-              </NavLink>
             </li>
             <li>
               {user && (
@@ -123,9 +74,66 @@ const Navbar = () => {
             </li>
             <li>
               {user ? (
+                <button onClick={() => logout()}>Logout</button>
+              ) : (
+                <NavLink to="/login">Login</NavLink>
+              )}
+            </li>
+          </ul>
+        </div>
+        <a
+          onClick={() => {
+            navigate("/");
+          }}
+          className="logo text-white font-semibold text-2xl lg:text-3xl"
+        >
+          <img src="" alt="" />
+          Studyo
+        </a>
+      </div>
+
+      <div className="navbar-end items-center ">
+        <div className=" hidden text-white lg:flex">
+          <ul className="gap-5 items-center menu-horizontal px-1">
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "underline  font-semibold" : ""}`
+                }
+                to="/assignments"
+              >
+                Assignments
+              </NavLink>
+            </li>
+            <li>
+              {user && (
+                <NavLink
+                  className={({ isActive }) =>
+                    `${isActive ? "underline  font-semibold" : ""}`
+                  }
+                  to="/pending-assignments"
+                >
+                  Pending Assignments
+                </NavLink>
+              )}
+            </li>
+            <li>
+              {user && (
+                <NavLink
+                  className={({ isActive }) =>
+                    `${isActive ? "underline font-semibold" : ""}`
+                  }
+                  to="/resources-notes"
+                >
+                  Resources
+                </NavLink>
+              )}
+            </li>
+            <li>
+              {user ? (
                 <button
                   onClick={() => logout()}
-                  className="btn bg-green-500 text-gray-100 px-6 rounded-2xl border-none"
+                  className="btn bg-secondary border text-gray-100 px-6 rounded-2xl border-none"
                 >
                   Logout
                 </button>

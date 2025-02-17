@@ -40,7 +40,7 @@ const UpdatedAssignment = () => {
   };
   return (
     <div className="mt-16">
-      <div className=" md:mx-10 py-16 bg-orange-300 p-10">
+      <div className=" md:mx-10 py-16 bg-accent p-10">
         <h2 className="text-4xl mb-4 text-secondary font-semibold">
           Update Assignment
         </h2>
@@ -129,7 +129,7 @@ const UpdatedAssignment = () => {
               ></textarea>
             </div>
           </div>
-          <button className="btn w-full bg-green-800 text-white">
+          <button className="btn w-full bg-secondary hover:bg-primary text-white">
             Update Assignment
           </button>
         </form>

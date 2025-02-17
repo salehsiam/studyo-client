@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Card = ({ assignment }) => {
   const { _id, photo, title, marks, level, dueDate, description } = assignment;
   return (
-    <div className="flex flex-col relative rounded-md max-w-xs bg-orange-100 shadow-xl">
+    <div className="flex flex-col relative bg-white mx-auto rounded-md max-w-xs shadow-xl">
       <div className=" h-48 relative ">
         <img
           className="h-full w-full rounded-md object-cover"
@@ -11,11 +11,7 @@ const Card = ({ assignment }) => {
           alt={title}
         />
         <div className="absolute bottom-0 right-0">
-          <p className="badge rounded-none bg-blue-600 text-secondary py-3">
-            {" "}
-            Marks: {marks}
-          </p>
-          <p className="badge rounded-none bg-green-500 text-secondary py-3">
+          <p className="badge rounded-none bg-primary text-white py-3">
             {" "}
             {level}
           </p>
@@ -30,7 +26,7 @@ const Card = ({ assignment }) => {
         <div className="card-actions justify-between">
           <Link
             to={`/assignment/details/${_id}`}
-            className="bg-green-500 text-white px-5 py-1 rounded-md"
+            className="bg-primary text-white px-5 py-1 rounded-md"
           >
             View
           </Link>

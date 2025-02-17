@@ -1,41 +1,52 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
+import Loading from "../../loading/Loading";
 
 const ResourcesNotes = () => {
-  const [resources, setResources] = useState([
-    {
-      id: 1,
-      title: "React Basics",
-      description: "Introduction to React.",
-      file: "react-basics.pdf",
-      uploader: "John Doe",
-      date: "2025-02-12",
-    },
-  ]);
+  const { user } = useAuth();
+  const [resources, setResources] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleUpload = () => {
     if (!title || !file) return;
+
     const newResource = {
-      id: resources.length + 1,
       title,
       description,
       file: file.name,
-      uploader: "You",
+      uploader: user.displayName,
+      email: user.email,
       date: new Date().toISOString().split("T")[0],
     };
-    setResources([newResource, ...resources]);
-    setTitle("");
-    setDescription("");
-    setFile(null);
+    console.log(newResource);
+    axios
+      .post("https://studyo-server.vercel.app/resources", newResource)
+      .then((data) => {
+        toast.success("resources added");
+        setResources((prev) => [...prev, newResource]);
+        setTitle("");
+        setDescription("");
+        setFile(null);
+      });
   };
-
+  useEffect(() => {
+    axios.get("https://studyo-server.vercel.app/resources").then((data) => {
+      console.log(data.data);
+      setResources(data.data);
+      setLoading(false);
+    });
+  }, []);
+  if (loading) return <Loading></Loading>;
   return (
-    <div className="max-w-7xl pt-24 mx-auto p-4">
+    <div className="max-w-7xl pt-24 px-8 mx-auto p-4">
       <h2 className="text-2xl font-bold mb-4">Resources & Notes</h2>
-      <div className="flex flex-row-reverse gap-6 justify-between">
-        <div className="bg-white shadow p-4 w-96 rounded-lg mb-6">
+      <div className="flex flex-col-reverse md:flex-row-reverse gap-6 justify-between">
+        <div className="bg-white shadow p-4 md:w-96 rounded-lg mb-6">
           <h3 className="text-lg font-semibold mb-2">Upload a Resource</h3>
           <input
             type="text"
@@ -57,7 +68,7 @@ const ResourcesNotes = () => {
           />
           <button
             onClick={handleUpload}
-            className="bg-blue-500 text-white p-2 rounded"
+            className="bg-primary text-white p-2 rounded"
           >
             Upload
           </button>
@@ -70,7 +81,7 @@ const ResourcesNotes = () => {
             <div className="grid gap-4">
               {resources.map((res) => (
                 <div
-                  key={res.id}
+                  key={res._id}
                   className="p-4 border rounded flex justify-between items-center"
                 >
                   <div>
@@ -83,7 +94,7 @@ const ResourcesNotes = () => {
                   <a
                     href={`#`}
                     download={res.file}
-                    className="text-blue-500 underline"
+                    className="text-secondary underline"
                   >
                     Download
                   </a>

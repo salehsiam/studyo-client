@@ -23,19 +23,20 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    googleLogin();
-    navigate(location?.state ? location.state : "/");
-    toast.success("successfully login");
+    googleLogin().then((res) => {
+      navigate(location?.state ? location.state : "/");
+      toast.success("successfully login");
+    });
   };
   return (
-    <div className="flex justify-center">
-      <div className="px-7 py-12  bg-orange-100 w-full max-w-lg shrink-0 shadow-2xl">
+    <div className="flex justify-center pt-20">
+      <div className="px-7 py-12  bg-accent w-full max-w-lg shrink-0 shadow-2xl">
         <h2 className="logo text-center text-2xl lg:text-3xl">Studyo</h2>
         <p className="text-xl text-center my-5">Sign in to your account</p>
         <div>
           <button
             onClick={handleGoogleLogin}
-            className="w-full flex btn bg-transparent border border-green-900 hover:bg-green-900 hover:text-white text-lg font-normal"
+            className="w-full flex btn bg-transparent border border-green-900 hover:bg-primary hover:text-white text-lg font-normal"
           >
             <FcGoogle className="text-2xl" />
             Continue with Google
@@ -73,7 +74,7 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-green-900 hover:bg-orange-600  text-white">
+            <button className="btn bg-secondary hover:bg-primary  text-white">
               Login
             </button>
           </div>
