@@ -7,6 +7,16 @@ import { FaMoon, FaSun } from "react-icons/fa";
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
 
   return (
     <div className="navbar max-w-7xl md:px-8">
@@ -130,6 +140,19 @@ const Navbar = () => {
                   Resources
                 </NavLink>
               )}
+            </li>
+            <li>
+              <button
+                onClick={toggleTheme}
+                className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all"
+                aria-label="Toggle Theme"
+              >
+                {theme === "dark" ? (
+                  <FaSun className="text-yellow-500" />
+                ) : (
+                  <FaMoon className="text-gray-800" />
+                )}
+              </button>
             </li>
             <li>
               {user ? (
