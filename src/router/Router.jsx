@@ -8,10 +8,11 @@ import Assignments from "../Pages/Assignments/Assignments";
 import PendingAssignment from "../Pages/Assignments/PendingAssignment";
 import AssDetails from "../Pages/Assignments/AssDetails";
 import UpdatedAssignment from "../Pages/Assignments/UpdatedAssignment";
-import MyAssignments from "../Pages/Assignments/MyAssignments";
 import PrivateRoute from "./PrivateRoute";
 import ResourcesNotes from "../Pages/Assignments/ResourcesNotes";
 import Error from "../sharedComponents/Error";
+import MyAssessment from "../Pages/Assignments/MyAssessment";
+import MyAssignment from "../Pages/Assignments/MyAssignment";
 
 const router = createBrowserRouter([
   {
@@ -48,10 +49,18 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/my-assignments",
+        path: "/my-assessment",
         element: (
           <PrivateRoute>
-            <MyAssignments></MyAssignments>
+            <MyAssessment></MyAssessment>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-assignment",
+        element: (
+          <PrivateRoute>
+            <MyAssignment></MyAssignment>
           </PrivateRoute>
         ),
       },

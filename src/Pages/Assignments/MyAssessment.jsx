@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Loading from "../../loading/Loading";
 import Lottie from "lottie-react";
-import noFound from "./../../assets/lottie/nofound.json";
+import noFound from "../../assets/lottie/nofound.json";
 
-const MyAssignments = () => {
+const MyAssessment = () => {
   const { user } = useAuth();
   const [myAssignments, setMyAssignments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,7 +40,7 @@ const MyAssignments = () => {
   return (
     <div className=" px-8 pt-24 max-w-7xl mx-auto">
       <h2 className="text-3xl text-primary font-semibold mb-4">
-        My Assignments
+        My Assessment
       </h2>
       <div>
         <div className="overflow-x-auto">
@@ -78,4 +78,4 @@ const MyAssignments = () => {
   );
 };
 
-export default MyAssignments;
+export default MyAssessment;

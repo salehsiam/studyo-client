@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
+
   return (
     <div className="navbar max-w-7xl md:px-8">
       <div className="navbar-start">
@@ -130,16 +142,31 @@ const Navbar = () => {
               )}
             </li>
             <li>
+              <button
+                onClick={toggleTheme}
+                className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all"
+                aria-label="Toggle Theme"
+              >
+                {theme === "dark" ? (
+                  <FaSun className="text-yellow-500" />
+                ) : (
+                  <FaMoon className="text-gray-800" />
+                )}
+              </button>
+            </li>
+            <li>
               {user ? (
                 <button
                   onClick={() => logout()}
-                  className="btn bg-secondary border text-gray-100 px-6 rounded-2xl border-none"
+                  className="btn bg-yellow-300 hover:bg-yellow-300 text-black px-6 rounded-2xl border-none"
                 >
                   Logout
                 </button>
               ) : (
                 <Link to="/login">
-                  <button className="btn">Login</button>
+                  <button className="btn bg-yellow-300 hover:bg-yellow-300 text-black  px-6 rounded-2xl border-none">
+                    Login
+                  </button>
                 </Link>
               )}
             </li>
@@ -171,7 +198,10 @@ const Navbar = () => {
                   <NavLink to="/create-assignment">Create Assignments</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/my-assignments">My Assignments</NavLink>
+                  <NavLink to="/my-assessment">My Assessment</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/my-assignment">My Assignment</NavLink>
                 </li>
               </ul>
             </div>
