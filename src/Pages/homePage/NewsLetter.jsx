@@ -55,12 +55,12 @@ const Newsletter = () => {
               type="email"
               name="user_email"
               placeholder="Enter your email"
-              className="w-full sm:w-auto flex-grow px-5 py-3 border border-white/20 rounded-full bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full sm:w-auto flex-grow px-5 py-3 border border-white/20 rounded-2xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
               required
             />
             <button
               type="submit"
-              className="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300"
+              className="bg-white text-purple-600 px-6 py-3 rounded-2xl font-semibold hover:bg-gray-200 transition duration-300"
             >
               {loading ? "Subscribing..." : "Subscribe"}
             </button>
