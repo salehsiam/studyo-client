@@ -2,6 +2,8 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import Loading from "../../loading/Loading";
 
 const Register = () => {
   const { createUser, setUser, updateUserProfile, googleLogin } = useAuth();

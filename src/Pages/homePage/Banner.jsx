@@ -26,7 +26,7 @@ const Banner = () => {
             onClick={() => {
               navigate("/assignments");
             }}
-            className="btn bg-yellow-300 hover:bg-yellow-500 px-6"
+            className="btn bg-yellow-300 text-black hover:bg-yellow-500 px-6"
           >
             Explore
           </button>

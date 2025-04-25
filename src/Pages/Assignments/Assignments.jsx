@@ -55,7 +55,7 @@ const Assignments = () => {
   if (loading) return <Loading></Loading>;
 
   return (
-    <div className="pt-24">
+    <div className="pt-24 md:px-10">
       <div className="md:flex items-center px-4 justify-between  ">
         <h2 className="md:text-4xl text-primary flex-1 text-3xl mb-4 font-semibold">
           All Assignments

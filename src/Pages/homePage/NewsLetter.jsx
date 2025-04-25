@@ -16,7 +16,7 @@ const Newsletter = () => {
       .sendForm(
         import.meta.env.VITE_EmailServiceId,
         import.meta.env.VITE_Email_TEMPLATE_ID,
-        form.current, // Sending the form reference
+        form.current,
         import.meta.env.VITE_EmailJsPublic
       )
       .then(
@@ -36,11 +36,11 @@ const Newsletter = () => {
     <section className="relative py-16 px-4 md:px-12 bg-gradient-to-r from-blue-600 to-green-500">
       <div className="max-w-3xl mx-auto text-center">
         <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg">
-          <Lottie
+          {/* <Lottie
             className="w-32 mx-auto"
             animationData={newsletterLottie}
             loop={true}
-          />
+          /> */}
           <h2 className="text-4xl font-extrabold text-white">Stay Updated!</h2>
           <p className="text-gray-200 mt-3">
             Subscribe to our newsletter and never miss an update.
@@ -53,7 +53,7 @@ const Newsletter = () => {
           >
             <input
               type="email"
-              name="user_email" // Make sure this matches the template variable!
+              name="user_email"
               placeholder="Enter your email"
               className="w-full sm:w-auto flex-grow px-5 py-3 border border-white/20 rounded-full bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
               required

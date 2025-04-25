@@ -23,7 +23,6 @@ const ResourcesNotes = () => {
       email: user.email,
       date: new Date().toISOString().split("T")[0],
     };
-    console.log(newResource);
     axios
       .post("https://studyo-server.vercel.app/resources", newResource)
       .then((data) => {

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+
   return (
     <div className="navbar max-w-7xl md:px-8">
       <div className="navbar-start">
@@ -133,13 +135,15 @@ const Navbar = () => {
               {user ? (
                 <button
                   onClick={() => logout()}
-                  className="btn bg-secondary border text-gray-100 px-6 rounded-2xl border-none"
+                  className="btn bg-yellow-300 hover:bg-yellow-300 text-black px-6 rounded-2xl border-none"
                 >
                   Logout
                 </button>
               ) : (
                 <Link to="/login">
-                  <button className="btn">Login</button>
+                  <button className="btn bg-yellow-300 hover:bg-yellow-300 text-black  px-6 rounded-2xl border-none">
+                    Login
+                  </button>
                 </Link>
               )}
             </li>
@@ -171,7 +175,10 @@ const Navbar = () => {
                   <NavLink to="/create-assignment">Create Assignments</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/my-assignments">My Assignments</NavLink>
+                  <NavLink to="/my-assessment">My Assessment</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/my-assignment">My Assignment</NavLink>
                 </li>
               </ul>
             </div>
